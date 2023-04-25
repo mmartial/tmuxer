@@ -64,7 +64,7 @@ if [ -e $logsdir ]; then error_exit "logsdir ($logsdir) already exists, not over
 make_dir "$logsdir"
 check_dir_w "$logsdir"
 
-echo "[--] Confirming executable files list from $execdir"
+echo "[**] Confirming executable files list from $execdir"
 # check that the execdir exists and is readable
 check_dir_r "$execdir"
 # Get list of executables from within execdir

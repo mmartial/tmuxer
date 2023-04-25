@@ -5,17 +5,18 @@
 Short shell script to take a set of commands and run them in parallel using `tmux`
 
 ```
-./tmuxer tmuxfile directory_with_executables logs_directory
+./tmuxer.sh tmuxfile directory_with_executables logs_directory
 ```
 
 The tool:
 - creates a `tmuxfile` script (bash script)
-    - it will refuse to run if the script already exists
+  - it will refuse to run if the script already exists
 - will only use executable programs from the `directory_with_executables`
 - will create the `logs_directory` and create files in there using the tmux window id, the executable name, and a `.log` extension
-    - it will refuse to run if the directory already exists
+  - it will refuse to run if the directory already exists
 - requires `script` and `tmux` to be installed on the host
-    - because of variations in the version of the base tools, this tool was only tested on Linux and will only accept to run on this plaform
+  - the tool will check for their existence and fail if either is not present
+  - because of variations in the version of the base tools, this tool was only tested on Linux and will only accept to run on this plaform
 
 ## Example of use
 
@@ -43,8 +44,8 @@ $ chmod u+x torun/scr{1,2,3}
 Let's run the script to get our base script:
 
 ```
-$ ./tmuxer torun.tmux torun logs
-[--] Confirming executable files list from torun
+$ ./tmuxer.sh torun.tmux torun logs
+[**] Confirming executable files list from torun
   [OK] scr1
   [OK] scr2
   [OK] scr3
